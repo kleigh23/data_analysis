@@ -34,6 +34,7 @@ salary_trends = df.groupby("Job Title")["Salary"].mean().sort_values(ascending=F
 job_locations = df["Location"].value_counts().head(10)
 
 # Visualization
+# In-Demand Skills (Bar Chart)
 plt.figure(figsize=(10,5))
 sns.barplot(x=top_skills.index, y=top_skills.values, palette="coolwarm")
 plt.xticks(rotation=45)
@@ -42,6 +43,7 @@ plt.xlabel("Skills")
 plt.ylabel("Job Count")
 plt.show()
 
+# Salary Distribution (Histogram)
 plt.figure(figsize=(10,5))
 sns.histplot(df["Salary"].dropna(), bins=20, kde=True)
 plt.title("Salary Distribution")
@@ -49,6 +51,7 @@ plt.xlabel("Salary ($)")
 plt.ylabel("Frequency")
 plt.show()
 
+# Top 10 Job Locations (Bar Chart)
 plt.figure(figsize=(10,5))
 sns.barplot(x=job_locations.index, y=job_locations.values, palette="viridis")
 plt.xticks(rotation=45)
@@ -57,4 +60,5 @@ plt.xlabel("Location")
 plt.ylabel("Job Openings")
 plt.show()
 
+# Message displayed when program is done.
 print("Job Market Analysis Complete!")
